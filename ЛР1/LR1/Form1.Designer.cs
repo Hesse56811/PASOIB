@@ -37,6 +37,7 @@ namespace LR1
             this.создатьКлючToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.зашифроватьИнформациюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.отобразитьШифрованнуюИнформациюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.отобразитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.дешифрованиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.прочестьИнформациюОКлючеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.расшифроватьФайлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,9 +45,11 @@ namespace LR1
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog2 = new System.Windows.Forms.SaveFileDialog();
-            this.отобразитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog4 = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -99,14 +102,14 @@ namespace LR1
             // создатьКлючToolStripMenuItem
             // 
             this.создатьКлючToolStripMenuItem.Name = "создатьКлючToolStripMenuItem";
-            this.создатьКлючToolStripMenuItem.Size = new System.Drawing.Size(303, 22);
+            this.создатьКлючToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
             this.создатьКлючToolStripMenuItem.Text = "Создать ключ";
             this.создатьКлючToolStripMenuItem.Click += new System.EventHandler(this.создатьКлючToolStripMenuItem_Click_1);
             // 
             // зашифроватьИнформациюToolStripMenuItem
             // 
             this.зашифроватьИнформациюToolStripMenuItem.Name = "зашифроватьИнформациюToolStripMenuItem";
-            this.зашифроватьИнформациюToolStripMenuItem.Size = new System.Drawing.Size(303, 22);
+            this.зашифроватьИнформациюToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
             this.зашифроватьИнформациюToolStripMenuItem.Text = "Зашифровать информацию";
             this.зашифроватьИнформациюToolStripMenuItem.Click += new System.EventHandler(this.зашифроватьИнформациюToolStripMenuItem_Click);
             // 
@@ -116,6 +119,13 @@ namespace LR1
             this.отобразитьШифрованнуюИнформациюToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
             this.отобразитьШифрованнуюИнформациюToolStripMenuItem.Text = "Отобразить зашифрованную информацию";
             this.отобразитьШифрованнуюИнформациюToolStripMenuItem.Click += new System.EventHandler(this.отобразитьШифрованнуюИнформациюToolStripMenuItem_Click);
+            // 
+            // отобразитьToolStripMenuItem
+            // 
+            this.отобразитьToolStripMenuItem.Name = "отобразитьToolStripMenuItem";
+            this.отобразитьToolStripMenuItem.Size = new System.Drawing.Size(314, 22);
+            this.отобразитьToolStripMenuItem.Text = "Отобразить файл для шифрования";
+            this.отобразитьToolStripMenuItem.Click += new System.EventHandler(this.отобразитьToolStripMenuItem_Click);
             // 
             // дешифрованиеToolStripMenuItem
             // 
@@ -143,7 +153,7 @@ namespace LR1
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(521, 102);
+            this.label1.Location = new System.Drawing.Point(649, 128);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(35, 13);
             this.label1.TabIndex = 3;
@@ -169,13 +179,6 @@ namespace LR1
             this.saveFileDialog2.Title = "Выбирете куда сохранить шифр";
             this.saveFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog2_FileOk_1);
             // 
-            // отобразитьToolStripMenuItem
-            // 
-            this.отобразитьToolStripMenuItem.Name = "отобразитьToolStripMenuItem";
-            this.отобразитьToolStripMenuItem.Size = new System.Drawing.Size(303, 22);
-            this.отобразитьToolStripMenuItem.Text = "Отобразить файл для шифрования";
-            this.отобразитьToolStripMenuItem.Click += new System.EventHandler(this.отобразитьToolStripMenuItem_Click);
-            // 
             // openFileDialog3
             // 
             this.openFileDialog3.FileName = "openFileDialog3";
@@ -190,11 +193,45 @@ namespace LR1
             this.openFileDialog4.Title = "Выбор имени зашифрованного файла ";
             this.openFileDialog4.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog4_FileOk);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "режим электронной книги(ECB)",
+            "режим сцепления блоков(CBC)",
+            "режим обратной связи по шифротексту(CFB)",
+            "режим обратной связи по выходу(OFB)"});
+            this.comboBox1.Location = new System.Drawing.Point(353, 91);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(245, 21);
+            this.comboBox1.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(238, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(109, 13);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Режим шифрования";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(624, 44);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "label3";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(894, 501);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.richTextBox1);
@@ -229,6 +266,9 @@ namespace LR1
         private System.Windows.Forms.ToolStripMenuItem отобразитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog3;
         private System.Windows.Forms.OpenFileDialog openFileDialog4;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }
 

@@ -44,6 +44,27 @@ namespace LR1
         private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
             FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate, FileAccess.ReadWrite);
+            if (comboBox1.Text == "режим электронной книги(ECB)")
+            {
+                label3.Text = "Режим ECB";
+                DES.Mode = CipherMode.ECB;
+            }
+            if (comboBox1.Text == "режим сцепления блоков(CBC)"){    
+                DES.Mode = CipherMode.CBC;
+                label3.Text = "Режим CBC";
+            }
+            if (comboBox1.Text == "режим обратной связи по шифротексту(CFB)")
+            {
+                DES.Mode = CipherMode.CFB;
+                label3.Text = "Режим CFB";
+
+            }
+            if (comboBox1.Text == "режим обратной связи по выходу(OFB)")
+            {
+                DES.Mode = CipherMode.OFB;
+                label3.Text = "Режим OFB";
+
+            }
             fs.Write(DES.Key, 0, DES.Key.Length);
             fs.Close();
         }
